@@ -1,0 +1,483 @@
+{
+  "type": "namespace",
+  "name": "Agora",
+  "url": "https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/web/v2.5/globals.html",
+  "typeAliases": [],
+  "variables": [
+    "BUILD: string",
+    "VERSION: string"
+  ],
+  "properties": [],
+  "functions": [
+    "checkSystemRequirements(): boolean",
+    "createClient(config: ClientConfig): Client",
+    "createStream(spec: StreamSpec): Stream",
+    "getDevices(callback: Function): void"
+  ],
+  "methods": [],
+  "indexables": [],
+  "interfaces": [
+    {
+      "type": "interface",
+      "name": "Client",
+      "url": "https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/web/v2.5/interfaces/agorartc.client.html",
+      "typeAliases": [],
+      "variables": [],
+      "properties": [],
+      "functions": [],
+      "methods": [
+        "configPublisher(width: number, height: number, framerate: number, bitrate: number, publisherUrl: string): void",
+        "disableDualStream(onSuccess: Function, onFailure: Function): void",
+        "enableAudioVolumeIndicator(): void",
+        "enableDualStream(onSuccess: Function, onFailure: Function): void",
+        "getCameras(callback: Function): void",
+        "getLocalAudioStats(callback: Function): void",
+        "getLocalVideoStats(callback: Function): void",
+        "getNetworkStats(callback: Function): void",
+        "getPlayoutDevices(callback: Function): void",
+        "getRecordingDevices(callback: Function): void",
+        "getRemoteAudioStats(callback: Function): void",
+        "getRemoteVideoStats(callback: Function): void",
+        "getSystemStats(callback: Function): void",
+        "getTransportStats(callback: Function): void",
+        "init(appId: string, onSuccess: Function, onFailure: Function): void",
+        "join(tokenOrKey: string, channel: string, uid: number | string, onSuccess: Function, onFailure: Function): void",
+        "leave(onSuccess: Function, onFailure: Function): void",
+        "on(event: \"stream-published\", callback: Function): void;\n\t\ton(event: \"stream-added\", callback: Function): void;\n\t\ton(event: \"stream-removed\", callback: Function): void;\n\t\ton(event: \"stream-subscribed\", callback: Function): void;\n\t\ton(event: \"peer-leave\", callback: Function): void;\n\t\ton(event: \"mute-audio\", callback: Function): void;\n\t\ton(event: \"unmute-audio\", callback: Function): void;\n\t\ton(event: \"mute-video\", callback: Function): void;\n\t\ton(event: \"unmute-video\", callback: Function): void;\n\t\ton(event: \"client-banned\", callback: Function): void;\n\t\ton(event: \"active-speaker\", callback: Function): void;\n\t\ton(event: \"volume-indicator\", callback: Function): void;\n\t\ton(event: \"liveStreamingStarted\", callback: Function): void;\n\t\ton(event: \"liveStreamingFailed\", callback: Function): void;\n\t\ton(event: \"liveStreamingStopped\", callback: Function): void;\n\t\ton(event: \"liveTranscodingUpdated\", callback: Function): void;\n\t\ton(event: \"onTokenPrivilegeWillExpire\", callback: Function): void;\n\t\ton(event: \"onTokenPrivilegeDidExpire\", callback: Function): void;\n\t\ton(event: \"error\", callback: Function): void;\n\t\ton(event: \"networkTypeChanged\", callback: Function): void;\n\t\ton(event: \"recordingDeviceChanged\", callback: Function): void;\n\t\ton(event: \"playoutDeviceChanged\", callback: Function): void;\n\t\ton(event: \"cameraChanged\", callback: Function): void;\n\t\ton(event: \"streamTypeChange\", callback: Function): void",
+        "publish(stream: Stream, onFailure: Function): void",
+        "renewChannelKey(key: string, onSuccess: Function, onFailure: Function): void",
+        "renewToken(token: string): void",
+        "setEncryptionMode(encryptionMode: \"aes-128-xts\" | \"aes-256-xts\" | \"aes-128-ecb\"): void",
+        "setEncryptionSecret(password: string): void",
+        "setLiveTranscoding(coding: LiveTranscoding): void",
+        "setLowStreamParameter(param: object): void",
+        "setProxyServer(proxyServer: string): void",
+        "setRemoteVideoStreamType(stream: Stream, streamType: 0 | 1): void",
+        "setStreamFallbackOption(stream: Stream, fallbackType: 0 | 1 | 2): void",
+        "setTurnServer(turnServer: object): void",
+        "startLiveStreaming(url: string, enableTranscoding?: boolean): void",
+        "stopLiveStreaming(url: string): void",
+        "subscribe(stream: Stream, onFailure: Function): void",
+        "unpublish(stream: Stream, onFailure: Function): void",
+        "unsubscribe(stream: Stream, onFailure: Function): void"
+      ],
+      "indexables": [],
+      "interfaces": [],
+      "modules": []
+    },
+    {
+      "type": "interface",
+      "name": "ClientConfig",
+      "url": "https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/web/v2.5/interfaces/agorartc.clientconfig.html",
+      "typeAliases": [],
+      "variables": [],
+      "properties": [
+        "codec: \"vp8\" | \"h264\"",
+        "mode: \"live\" | \"rtc\"",
+        "proxyServer?: string",
+        "turnServer?: object"
+      ],
+      "functions": [],
+      "methods": [],
+      "indexables": [],
+      "interfaces": [],
+      "modules": []
+    },
+    {
+      "type": "interface",
+      "name": "LiveTranscoding",
+      "url": "https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/web/v2.5/interfaces/agorartc.livetranscoding.html",
+      "typeAliases": [],
+      "variables": [],
+      "properties": [
+        "audioBitrate: number",
+        "audioChannels: number",
+        "audioSampleRate: 32000 | 441000 | 48000",
+        "backgroundColor: number",
+        "height: number",
+        "lowLatency: boolean",
+        "transcodingUsers: object",
+        "userCount: number",
+        "videoBitrate: number",
+        "videoCodecProfile: 66 | 77 | 100",
+        "videoFramerate: number",
+        "videoGop: number",
+        "width: number"
+      ],
+      "functions": [],
+      "methods": [],
+      "indexables": [],
+      "interfaces": [],
+      "modules": []
+    },
+    {
+      "type": "interface",
+      "name": "LocalAudioStats",
+      "url": "https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/web/v2.5/interfaces/agorartc.localaudiostats.html",
+      "typeAliases": [],
+      "variables": [],
+      "properties": [
+        "CodecType?: string",
+        "MuteState?: string",
+        "RecordingLevel?: string",
+        "SamplingRate?: string",
+        "SendBitrate?: string",
+        "SendLevel?: string"
+      ],
+      "functions": [],
+      "methods": [],
+      "indexables": [],
+      "interfaces": [],
+      "modules": []
+    },
+    {
+      "type": "interface",
+      "name": "LocalAudioStatsMap",
+      "url": "https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/web/v2.5/interfaces/agorartc.localaudiostatsmap.html",
+      "typeAliases": [],
+      "variables": [],
+      "properties": [],
+      "functions": [],
+      "methods": [],
+      "indexables": [
+        "[uid: string]: LocalAudioStats"
+      ],
+      "interfaces": [],
+      "modules": []
+    },
+    {
+      "type": "interface",
+      "name": "LocalStreamStats",
+      "url": "https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/web/v2.5/interfaces/agorartc.localstreamstats.html",
+      "typeAliases": [],
+      "variables": [],
+      "properties": [
+        "accessDelay: string",
+        "audioSendBytes: string",
+        "audioSendPackets: string",
+        "audioSendPacketsLost: string",
+        "videoSendBytes: string",
+        "videoSendFrameRate: string",
+        "videoSendPackets: string",
+        "videoSendPacketsLost: string",
+        "videoSendResolutionHeight?: string",
+        "videoSendResolutionWidth?: string"
+      ],
+      "functions": [],
+      "methods": [],
+      "indexables": [],
+      "interfaces": [],
+      "modules": []
+    },
+    {
+      "type": "interface",
+      "name": "LocalVideoStats",
+      "url": "https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/web/v2.5/interfaces/agorartc.localvideostats.html",
+      "typeAliases": [],
+      "variables": [],
+      "properties": [
+        "EncodeDelay?: string",
+        "MuteState?: string",
+        "SendBitrate?: string",
+        "SendFrameRate?: string",
+        "SendResolutionHeight?: string",
+        "SendResolutionWidth?: string",
+        "TargetSendBitrate?: string"
+      ],
+      "functions": [],
+      "methods": [],
+      "indexables": [],
+      "interfaces": [],
+      "modules": []
+    },
+    {
+      "type": "interface",
+      "name": "LocalVideoStatsMap",
+      "url": "https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/web/v2.5/interfaces/agorartc.localvideostatsmap.html",
+      "typeAliases": [],
+      "variables": [],
+      "properties": [],
+      "functions": [],
+      "methods": [],
+      "indexables": [
+        "[uid: string]: LocalVideoStats"
+      ],
+      "interfaces": [],
+      "modules": []
+    },
+    {
+      "type": "interface",
+      "name": "MediaDeviceInfo",
+      "url": "https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/web/v2.5/interfaces/agorartc.mediadeviceinfo.html",
+      "typeAliases": [],
+      "variables": [],
+      "properties": [
+        "deviceId: string",
+        "kind: string",
+        "label: string"
+      ],
+      "functions": [],
+      "methods": [],
+      "indexables": [],
+      "interfaces": [],
+      "modules": []
+    },
+    {
+      "type": "interface",
+      "name": "MediaStreamTrack",
+      "url": "https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/web/v2.5/interfaces/agorartc.mediastreamtrack.html",
+      "typeAliases": [],
+      "variables": [],
+      "properties": [],
+      "functions": [],
+      "methods": [],
+      "indexables": [],
+      "interfaces": [],
+      "modules": []
+    },
+    {
+      "type": "interface",
+      "name": "NetworkStats",
+      "url": "https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/web/v2.5/interfaces/agorartc.networkstats.html",
+      "typeAliases": [],
+      "variables": [],
+      "properties": [
+        "NetworkType: \"bluetooth\" | \"cellular\" | \"ethernet\" | \"none\" | \"wifi\" | \"wimax\" | \"other\" | \"unknown\" | \"UNSUPPORTED\""
+      ],
+      "functions": [],
+      "methods": [],
+      "indexables": [],
+      "interfaces": [],
+      "modules": []
+    },
+    {
+      "type": "interface",
+      "name": "RemoteAudioStats",
+      "url": "https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/web/v2.5/interfaces/agorartc.remoteaudiostats.html",
+      "typeAliases": [],
+      "variables": [],
+      "properties": [
+        "CodecType?: string",
+        "End2EndDelay?: string",
+        "MuteState?: string",
+        "PacketLossRate?: string",
+        "RecvBitrate?: string",
+        "RecvLevel?: string",
+        "TransportDelay?: string"
+      ],
+      "functions": [],
+      "methods": [],
+      "indexables": [],
+      "interfaces": [],
+      "modules": []
+    },
+    {
+      "type": "interface",
+      "name": "RemoteAudioStatsMap",
+      "url": "https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/web/v2.5/interfaces/agorartc.remoteaudiostatsmap.html",
+      "typeAliases": [],
+      "variables": [],
+      "properties": [],
+      "functions": [],
+      "methods": [],
+      "indexables": [
+        "[uid: string]: RemoteAudioStats"
+      ],
+      "interfaces": [],
+      "modules": []
+    },
+    {
+      "type": "interface",
+      "name": "RemoteStreamStats",
+      "url": "https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/web/v2.5/interfaces/agorartc.remotestreamstats.html",
+      "typeAliases": [],
+      "variables": [],
+      "properties": [
+        "accessDelay: string",
+        "audioReceiveBytes: string",
+        "audioReceiveDelay: string",
+        "audioReceivePackets: string",
+        "audioReceivePacketsLost: string",
+        "endToEndDelay: string",
+        "videoReceiveBytes: string",
+        "videoReceiveDecodeFrameRate: string",
+        "videoReceiveDelay: string",
+        "videoReceiveFrameRate: string",
+        "videoReceivePackets: string",
+        "videoReceivePacketsLost: string",
+        "videoReceivedResolutionHeight?: string",
+        "videoReceivedResolutionWidth?: string"
+      ],
+      "functions": [],
+      "methods": [],
+      "indexables": [],
+      "interfaces": [],
+      "modules": []
+    },
+    {
+      "type": "interface",
+      "name": "RemoteVideoStats",
+      "url": "https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/web/v2.5/interfaces/agorartc.remotevideostats.html",
+      "typeAliases": [],
+      "variables": [],
+      "properties": [
+        "End2EndDelay?: string",
+        "MuteState?: string",
+        "PacketLossRate?: string",
+        "RecvBitrate?: string",
+        "RecvResolutionHeight?: string",
+        "RecvResolutionWidth?: string",
+        "RenderFrameRate?: string",
+        "TransportDelay?: string"
+      ],
+      "functions": [],
+      "methods": [],
+      "indexables": [],
+      "interfaces": [],
+      "modules": []
+    },
+    {
+      "type": "interface",
+      "name": "RemoteVideoStatsMap",
+      "url": "https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/web/v2.5/interfaces/agorartc.remotevideostatsmap.html",
+      "typeAliases": [],
+      "variables": [],
+      "properties": [],
+      "functions": [],
+      "methods": [],
+      "indexables": [
+        "[uid: string]: RemoteVideoStats"
+      ],
+      "interfaces": [],
+      "modules": []
+    },
+    {
+      "type": "interface",
+      "name": "Stream",
+      "url": "https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/web/v2.5/interfaces/agorartc.stream.html",
+      "typeAliases": [],
+      "variables": [],
+      "properties": [],
+      "functions": [],
+      "methods": [
+        "addTrack(track: MediaStreamTrack): void",
+        "adjustAudioMixingVolume(level: number): void",
+        "close(): void",
+        "disableAudio(): void",
+        "disableVideo(): void",
+        "enableAudio(): void",
+        "enableVideo(): void",
+        "getAudioLevel(): number",
+        "getAudioMixingCurrentPosition(): number | void",
+        "getAudioMixingDuration(): number | void",
+        "getAudioTrack(): MediaStreamTrack | void",
+        "getId(): number",
+        "getStats(callback: Function): void",
+        "getVideoTrack(): MediaStreamTrack | void",
+        "hasAudio(): boolean",
+        "hasVideo(): boolean",
+        "init(onSuccess: Function, onFailure: Function): void",
+        "on(event: \"accessAllowed\u0010\", callback: Function): void;\n\t\ton(event: \"accessDenied\u0010\", callback: Function): void;\n\t\ton(event: \"stopScreenSharing\", callback: Function): void",
+        "pauseAudioMixing(): void",
+        "play(HTMLElementID: string, option: object): void",
+        "removeTrack(track: MediaStreamTrack): void",
+        "replaceTrack(MediaStreamTrack: MediaStreamTrack, onSuccess: Function, onFailure: Function): void",
+        "resumeAudioMixing(): void",
+        "setAudioMixingPosition(position: number): void",
+        "setAudioOutput(deviceId: string, onSuccess: Function, onFailure: Function): void",
+        "setAudioProfile(profile: \"speech_low_quality\" | \"speech_standard\" | \"music_standard\" | \"standard_stereo\" | \"high_quality\" | \"high_quality_stereo\"): void",
+        "setAudioVolume(volume: number): void",
+        "setScreenProfile(profile: string): void",
+        "setVideoProfile(profile: string): void",
+        "startAudioMixing(options: object, callback: Function): void",
+        "stop(): void",
+        "stopAudioMixing(): void",
+        "switchDevice(type: string, deviceId: string, onSuccess: Function, onFailure: Function): void"
+      ],
+      "indexables": [],
+      "interfaces": [],
+      "modules": []
+    },
+    {
+      "type": "interface",
+      "name": "StreamSpec",
+      "url": "https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/web/v2.5/interfaces/agorartc.streamspec.html",
+      "typeAliases": [],
+      "variables": [],
+      "properties": [
+        "audio: boolean",
+        "audioProcessing?: object",
+        "audioSource: object",
+        "cameraId?: string",
+        "extensionId?: string",
+        "mediaSource?: \"screen\" | \"application\" | \"window\"",
+        "microphoneId?: string",
+        "mirror?: boolean",
+        "screen: boolean",
+        "streamID: number",
+        "video: boolean",
+        "videoSource: object"
+      ],
+      "functions": [],
+      "methods": [],
+      "indexables": [],
+      "interfaces": [],
+      "modules": []
+    },
+    {
+      "type": "interface",
+      "name": "SystemStats",
+      "url": "https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/web/v2.5/interfaces/agorartc.systemstats.html",
+      "typeAliases": [],
+      "variables": [],
+      "properties": [
+        "BatteryLevel: \"string\""
+      ],
+      "functions": [],
+      "methods": [],
+      "indexables": [],
+      "interfaces": [],
+      "modules": []
+    },
+    {
+      "type": "interface",
+      "name": "TransportStats",
+      "url": "https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/web/v2.5/interfaces/agorartc.transportstats.html",
+      "typeAliases": [],
+      "variables": [],
+      "properties": [
+        "RTT?: string"
+      ],
+      "functions": [],
+      "methods": [],
+      "indexables": [],
+      "interfaces": [],
+      "modules": []
+    }
+  ],
+  "modules": [
+    {
+      "type": "module",
+      "name": "Logger",
+      "url": "https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/web/v2.5/modules/agorartc.logger.html",
+      "typeAliases": [
+        "DEBUG = 0",
+        "ERROR = 3",
+        "INFO = 1",
+        "NONE = 4",
+        "WARNING = 2"
+      ],
+      "variables": [],
+      "properties": [],
+      "functions": [
+        "disableLogUpload(): void",
+        "enableLogUpload(): void",
+        "setLogLevel(level: DEBUG | INFO | WARNING | ERROR | NONE): void"
+      ],
+      "methods": [],
+      "indexables": [],
+      "interfaces": [],
+      "modules": []
+    }
+  ]
+}

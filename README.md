@@ -1,0 +1,1 @@
+# Genrate TypeScript definition file for agora-rtc-sdk
