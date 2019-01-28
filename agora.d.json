@@ -1,6 +1,6 @@
 {
-  "type": "namespace",
-  "name": "Agora",
+  "type": "declare module",
+  "name": "\"agora-rtc-sdk\"",
   "url": "https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/web/v2.5/globals.html",
   "typeAliases": [],
   "variables": [

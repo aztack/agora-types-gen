@@ -56,7 +56,7 @@
     "no-empty": false,
     "no-eval": true,
     "no-inferrable-types": false,
-    "no-internal-module": true,
+    // "no-internal-module": true,
     "no-invalid-this": false,
     "no-mergeable-namespace": false,
     "no-namespace": [
@@ -130,7 +130,7 @@
     "use-isnan": true,
     "variable-name": [
       true,
-      "check-format",
+      // "check-format",
       "allow-leading-underscore",
       "ban-keywords"
     ],

@@ -119,41 +119,40 @@ global.decodeEntities = function decodeEntities(encodedString) {
 global.json2ts = json2ts;
 function json2ts (ns) {
   return ejs.render(
-`
-<% if(type === 'interface') {%>
+`<% if(type === 'interface') {%>
 export <%} else if(type === 'namespace') { -%>
 declare <%} else { -%>
 <% } -%>
-<%=type%> <%=name%> {
-  <% if (typeAliases.length) {%>//type aliases<% } %>
+<%=type%> <%-name%> {
+  <% if (typeAliases.length) {%>// type aliases<% } %>
   <% for(let i in typeAliases) {-%>
   type <%- decodeEntities(typeAliases[i]) %>;
   <% } -%>
-  <% if (variables.length) {%>//variables<% } %>
+  <% if (variables.length) {%>// variables<% } %>
   <% for(let i in variables) {-%>
-  var <%- decodeEntities(variables[i]) %>;
+  let <%- decodeEntities(variables[i]) %>;
   <% } -%>
-  <% if (properties.length) {%>//properties<% } %>
+  <% if (properties.length) {%>// properties<% } %>
   <% for(let i in properties) {-%>
   <%- decodeEntities(properties[i]) %>;
   <% } -%>
-  <% if (functions.length) {%>//functions<% } %>
+  <% if (functions.length) {%>// functions<% } %>
   <% for(let i in functions) {-%>
   function <%- decodeEntities(functions[i]) %>;
   <% } -%>
-  <% if (methods.length) {%>//methods<% } %>
+  <% if (methods.length) {%>// methods<% } %>
   <% for(let i in methods) {-%>
   <%- decodeEntities(methods[i])%>;
   <% } -%>
-  <% if (modules.length) {%>//modules<% } -%>
+  <% if (modules.length) {%>// modules<% } -%>
   <% for(let i in modules) {-%>
   <%- json2ts(modules[i]) %>
   <% } -%>
-  <% if (interfaces.length) {%>//interfaces<% } -%>
+  <% if (interfaces.length) {%>// interfaces<% } -%>
   <% for(let i in interfaces) {-%>
   <%- json2ts(interfaces[i]) %>
   <% } -%>
-  <% if (indexables.length) {%>//indexables<% } %>
+  <% if (indexables.length) {%>// indexables<% } %>
   <% for(let i in indexables) {-%>
   <%- decodeEntities(indexables[i])%>;
   <% } -%>
@@ -167,12 +166,12 @@ async function main () {
   const fs = require('fs');
   const arg = process.argv[2];
   if (arg === '--json') {
-    const agora = await parse('Agora', 'namespace', `${BASE}/globals.html`);
+    const agora = await parse('"agora-rtc-sdk"', 'declare module', `${BASE}/globals.html`);
     fs.writeFileSync('./agora.d.json', JSON.stringify(agora, null, 2));
     console.log('Done! Now use --ts to generate agora.d.ts file');
   } else if (arg === '--ts') {
     let ts = json2ts(JSON.parse(fs.readFileSync('./agora.d.json').toString('utf-8')));
-    fs.writeFileSync('./agora-rtc-sdk.ts', ts);
+    fs.writeFileSync('./src/@types/agora-rtc-sdk/index.d.ts', ts);
     console.log('Done! Check out agora.d.ts')
   } else {
     console.log(`arguments: [--json | --ts]`)
