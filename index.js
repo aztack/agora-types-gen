@@ -171,6 +171,7 @@ async function main () {
     console.log('Done! Now use --ts to generate agora.d.ts file');
   } else if (arg === '--ts') {
     let ts = json2ts(JSON.parse(fs.readFileSync('./agora.d.json').toString('utf-8')));
+    ts = `/* tslint:disable: interface-name max-line-length ban-types unified-signatures */\n${ts}`;
     fs.writeFileSync('./src/@types/agora-rtc-sdk/index.d.ts', ts);
     console.log('Done! Check out agora.d.ts')
   } else {
